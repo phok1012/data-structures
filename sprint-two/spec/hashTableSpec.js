@@ -33,6 +33,13 @@ describe('hashTable', function() {
     hashTable.insert('Steven', 'Tyler');
     hashTable.remove('Steven');
     expect(hashTable.retrieve('Steven')).to.equal(undefined);
+    var v1 = 'val1';
+    var v2 = 'val2';
+    hashTable.insert(v1, v1);
+    hashTable.insert(v2, v2);
+    hashTable.remove(v2);
+    expect(hashTable.retrieve(v1)).to.equal(v1);
+    expect(hashTable.retrieve(v2)).to.equal(undefined);
   });
 
   it('should handle hash function collisions', function() {

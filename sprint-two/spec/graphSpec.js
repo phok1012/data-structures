@@ -20,6 +20,16 @@ describe('graph', function() {
     expect(graph.contains(1)).to.equal(true);
   });
 
+  it('should return true if edge exist', function() {
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.edgeStorage[1] = {}
+    graph.edgeStorage[2] = {}
+    graph.edgeStorage[1][2] = true;
+    graph.edgeStorage[2][1] = true;
+    expect(graph.hasEdge(1,2)).to.equal(true);
+  });
+
   it('should remove nodes that were inserted', function() {
     graph.addNode(2);
     expect(graph.contains(2)).to.equal(true);
